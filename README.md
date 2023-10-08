@@ -101,47 +101,72 @@ sns.heatmap(df.corr(),annot=True)
 ## SUPERSTORE:
 ### DATA FRAME OF SUPERSTORE
 <img src="https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/91702b71-024d-4bb1-bde4-18392a264bf3" width="250" height="250">
+
 ### Data information
+![DS2](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/c443883f-8cf6-4f5f-b4ee-eef401730a59)
 
 ### Data describing
+![DS3](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/51b07f4d-77eb-4482-a5c8-fe68ec112bc2)
 
 ### Sum of null values
+![DS4](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/f0958e9d-36fe-4745-93cf-3885d67e855b)
 
 ### After removing null values
+![DS5](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/c29779d4-e3d8-4391-a59a-b65b8cc25e9f)
 
 ### Scatter plot
+![DS6](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/cd55d233-5f25-4451-9eac-1270557c5c14)
 
 ### Bar plot
+![DS7](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/a1ba9121-6cc4-4a13-93cc-c884491218dd)
+
+![DS8](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/1fb3fb81-f2a7-4c34-9cc5-84dc2d8a9501)
 
 
 ### Box plot
+![DS9](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/92fa18b4-46e9-4e75-abbf-208ea3dea94c)
 
 ### Dist plot
+![DS10](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/6582fd54-083b-482a-9670-40ce01d38e7f)
 
 ### Correlation coefficient interpretation
+![DS11](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/80d97153-1912-40ca-9a7c-875c63ae7486)
 
 ### Heat map
+![DS12](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/4204da31-bbfc-4051-842a-bd3b8e0a3cbb)
 
 ## DIABETES
 ### DATA FRAME FOR DIABETES
+![DS13](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/d4d5c50b-015f-4d2a-bb29-39370301a9ce)
 
 ### Data information
+![DS14](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/e267215f-0108-4655-8a4e-3e3e6117f257)
 
 ### Data describing
+![DS15](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/13ff73a9-97ea-485f-a799-45edb43d6e6a)
 
 ### Sum of null values
+![DS16](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/c1e2954b-2fe8-4e63-935f-fcf168d03e20)
 
 ### Scatter plot
-
+![DS17](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/7e7e1712-2305-4cb4-afcb-ea4f42e0c9a7)
+![DS18](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/bb3781f1-5fa4-4194-b16c-03ba3a662fb4)
 ### Bar plot
-
+![DS19](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/c93a6716-2d38-4268-aeae-b3fee90409fd)
+![DS20](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/10b80b0f-af9a-4d60-8284-22d682c724e3)
 ### Box plot
+![DS21](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/aaf4bb9d-1541-4ad0-b5ef-a389d7bd0adb)
 
 ### Dist plot
+![DS22](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/a8b71f2b-e474-4f80-a354-8e6e1aa15062)
 
 ### correlation coefficient interpretation
 
+
+![DS23](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/5b89025c-0179-4741-934c-6ef20fe8e3df)
+
 ### Heat map
+![DS24](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/71fa8088-79a1-4896-853b-cccb9a47d230)
 
 ## RESULT:
 Thus we have read the given data and performed the multivariate analysis with different types of plots.
