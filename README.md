@@ -100,7 +100,7 @@ sns.heatmap(df.corr(),annot=True)
 ## OUTPUT:
 ## SUPERSTORE:
 ### DATA FRAME OF SUPERSTORE
-<br><img src= "https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/91702b71-024d-4bb1-bde4-18392a264bf3" width="250" height="250">
+<img src="https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/91702b71-024d-4bb1-bde4-18392a264bf3" width="250" height="250">
 ### Data information
 
 ### Data describing
