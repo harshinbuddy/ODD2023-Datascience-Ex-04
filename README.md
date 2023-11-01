@@ -1,175 +1,126 @@
-# ODD2023-Datascience-Ex-04
-## AIM:
+# EX 04 MULTIVARIATE ANALYSIS
+### Aim:
 To perform Multivariate EDA on the given data set.
-## EXPLANATION:
+### Explanation:
 Exploratory data analysis is used to understand the messages within a dataset. This technique involves many iterative processes to ensure that the cleaned data is further sorted to better understand the useful meaning.The primary aim with exploratory analysis is to examine the data for distribution, outliers and anomalies to direct specific testing of your hypothesis.
-## ALGORITHM:
-### STEP 1:
-Import the built libraries required to perform EDA and outlier removal.
-### STEP 2:
-Read the given csv file
-### STEP 3:
-Convert the file into a dataframe and get information of the data.
-### STEP 4:
-Return the objects containing counts of unique values using (value_counts()).
-### STEP 5:
-Plot the counts in the form of Histogram or Bar Graph.
-### STEP 6:
-Use seaborn the bar graph comparison of data can be viewed.
-### STEP 7:
-Find the pairwise correlation of all columns in the dataframe.corr()
-### STEP 8:
-Save the final data set into the file.
-## PROGRAM:
-```
-Name : ABINAYA S
-Register Number : 212222230002
-```
-### SuperStore.csv file:
+### Algorithm:
+- Step1: Import the built libraries required to perform EDA and outlier removal.
+- Step2: Read the given csv file.
+- Step3: Convert the file into a dataframe and get information of the data.
+- Step4: Return the objects containing counts of unique values using (value_counts()).
+- Step5: Plot the counts in the form of Histogram or Bar Graph.
+
+
+
+### Program:
+- SuperStore.csv
 ```
 import pandas as pd
 import seaborn as sns
+from scipy import stats
 import matplotlib.pyplot as plt
-data=pd.read_csv("/content/SuperStore (1).csv")
-df=pd.DataFrame(data)
-df.head()
+df=pd.read_csv('SuperStore.csv')
+df.describe()
+df.isnull().sum()
 df.info()
-df.describe()
-df.isnull().sum()
+# FILLING NULL VALUES
 df['Postal Code']=df['Postal Code'].fillna(df['Postal Code'].mode()[0])
-df.isnull().sum()
-
+sns.boxplot(df)
 sns.scatterplot(x=df['Region'],y=df['Sales'])
-
-states=df.loc[:,["State","Sales"]]
-states=states.groupby(by=["State"]).sum().sort_values(by="Sales")
-plt.figure(figsize=(12,5))
+plt.figure(figsize=(10,3))
+sns.barplot(x=df['State'],y=df['Sales'])
 plt.xticks(rotation=90)
-sns.barplot(x=states.index,y="Sales",data=states)
-
-states=df.loc[:,["Ship Mode","Row ID"]]
-states=states.groupby(by=["Ship Mode"]).sum().sort_values(by="Row ID")
-sns.barplot(x=states.index,y="Row ID",data=states)
-plt.xticks(rotation = 90)
-plt.xlabel=("SHIP MODE")
-plt.ylabel=("ROW ID")
-plt.show()
-
-sns.boxplot(x=df['Ship Date'],y=df['Sales'])
-sns.displot(df, x="Region", hue="Category")
-df.corr()
 sns.heatmap(df.corr(),annot=True)
+sns.displot(df,x='Region',hue="Category")
 ```
-### diabetes.csv file:
+- Output: (SuperStorE.csv)
+  
+![WhatsApp Image 2023-10-11 at 16 23 47_70c0b7e8](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/d23b9d0f-5860-4772-b3a8-fe3a41f6a203)
+
+![WhatsApp Image 2023-10-11 at 16 24 20_6ec1b4aa](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/13acf2d6-4959-4e08-8892-6c71ca1c41c8)
+
+![WhatsApp Image 2023-10-11 at 16 24 32_a6e4d80e](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/92ba610a-9bff-4c19-85c4-aa46c4f52ffb)
+
+
+![WhatsApp Image 2023-10-11 at 16 24 45_7b71e7e4](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/7c49a57f-777b-4bd1-a06c-cd9e1a269a3d)
+
+
+![WhatsApp Image 2023-10-11 at 16 24 58_9cf96542](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/8c9ad395-b524-465d-9971-7f5d5dc8c458)
+
+
+![WhatsApp Image 2023-10-11 at 16 25 11_a612bf38](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/78b9d814-1a4c-40c1-bbe7-b1eb7cad9eab)
+
+
+![WhatsApp Image 2023-10-11 at 16 25 25_a28a9eed](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/3f0ca3a9-1736-4961-be60-976788f25bb2)
+
+
+![WhatsApp Image 2023-10-11 at 16 26 37_1793512e](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/15e43568-5b22-45d4-9b1d-71379d03b0ba)
+
+- Diabetes.csv
 ```
 import pandas as pd
 import seaborn as sns
+from scipy import stats
 import matplotlib.pyplot as plt
-df=pd.read_csv("/content/diabetes.csv")
-df
+df=pd.read_csv('diabetes.csv')
 df.describe()
-df.info
 df.isnull().sum()
-
-sns.scatterplot(x=df['Glucose'],y=df['BloodPressure'])
-
+# REMOVING OUTLIER
+z = np.abs(stats.zscore(df['Glucose']))
+df=df[(z<2)]
+z = np.abs(stats.zscore(dfc['BloodPressure']))
+df=df[(z<2)]
+z = np.abs(stats.zscore(dfc['SkinThickness']))
+df=df[(z<3)]
+z = np.abs(stats.zscore(dfc['BMI']))
+df=df[(z<2)]
+z = np.abs(stats.zscore(dfc['Insulin']))
+df=df[(z<2)]
+z = np.abs(stats.zscore(dfc['DiabetesPedigreeFunction']))
+df=df[(z<2)]
+z = np.abs(stats.zscore(dfc['Age']))
+df=df[(z<2)]
+z = np.abs(stats.zscore(dfc['Outcome']))
+df=df[(z<3)]
+sns.boxplot(data=dfc)
+plt.xticks(rotation=90)
+sns.boxplot(data=dfc)
+plt.xticks(rotation=90)
 sns.scatterplot(x=df['Glucose'], y=df['BloodPressure'], hue=df['Outcome'])
-
 Age=df.loc[:,["Age","BMI"]]
 Age=Age.groupby(by=["Age"]).sum().sort_values(by="BMI")
 plt.figure(figsize=(12,5))
 plt.xticks(rotation=90)
 sns.barplot(x=Age.index,y="BMI",data=Age)
-
-Age=df.loc[:,["BloodPressure","Glucose"]]
-Age=Age.groupby(by=["BloodPressure"]).sum().sort_values(by="Glucose")
-sns.barplot(x=Age.index,y="Glucose",data=Age)
-plt.xticks(rotation = 90)
-plt.xlabel=("BloodPressure")
-plt.ylabel=("Glucose")
-plt.show()
-
 sns.boxplot(x=df['DiabetesPedigreeFunction'],y=df['Insulin'])
-
 sns.displot(df, x="Glucose", hue="Outcome")
-
 df.corr()
-
 sns.heatmap(df.corr(),annot=True)
 ```
-## OUTPUT:
-## SUPERSTORE:
-### DATA FRAME OF SUPERSTORE
-![DS1](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/04da1d1e-4305-4abf-825d-effe43521a9f)
+- Output (Diabetes.csv):
+
+![WhatsApp Image 2023-10-12 at 13 07 17_1113ee76](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/3e6db947-d1f8-4696-afb4-da35940c1dc5)
 
 
-### Data information
-![DS2](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/c443883f-8cf6-4f5f-b4ee-eef401730a59)
-
-### Data describing
-![DS3](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/51b07f4d-77eb-4482-a5c8-fe68ec112bc2)
-
-### Sum of null values
-![DS4](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/f0958e9d-36fe-4745-93cf-3885d67e855b)
-
-### After removing null values
-![DS5](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/c29779d4-e3d8-4391-a59a-b65b8cc25e9f)
-
-### Scatter plot
-![DS6](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/cd55d233-5f25-4451-9eac-1270557c5c14)
-
-### Bar plot
-![DS7](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/a1ba9121-6cc4-4a13-93cc-c884491218dd)
-
-![DS8](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/1fb3fb81-f2a7-4c34-9cc5-84dc2d8a9501)
+![WhatsApp Image 2023-10-12 at 13 07 33_063ebca2](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/2d0ad1fb-5c26-4270-ac3b-04acb58cf317)
 
 
-### Box plot
-![DS9](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/92fa18b4-46e9-4e75-abbf-208ea3dea94c)
-
-### Dist plot
-![DS10](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/6582fd54-083b-482a-9670-40ce01d38e7f)
-
-### Correlation coefficient interpretation
-![DS11](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/80d97153-1912-40ca-9a7c-875c63ae7486)
-
-### Heat map
-![DS12](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/4204da31-bbfc-4051-842a-bd3b8e0a3cbb)
-
-## DIABETES
-### DATA FRAME FOR DIABETES
-![DS13](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/d4d5c50b-015f-4d2a-bb29-39370301a9ce)
-
-### Data information
-![DS14](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/e267215f-0108-4655-8a4e-3e3e6117f257)
-
-### Data describing
-![DS15](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/13ff73a9-97ea-485f-a799-45edb43d6e6a)
-
-### Sum of null values
-![DS16](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/c1e2954b-2fe8-4e63-935f-fcf168d03e20)
-
-### Scatter plot
-![DS17](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/7e7e1712-2305-4cb4-afcb-ea4f42e0c9a7)
-![DS18](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/bb3781f1-5fa4-4194-b16c-03ba3a662fb4)
-### Bar plot
-![DS19](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/c93a6716-2d38-4268-aeae-b3fee90409fd)
-![DS20](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/10b80b0f-af9a-4d60-8284-22d682c724e3)
-### Box plot
-![DS21](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/aaf4bb9d-1541-4ad0-b5ef-a389d7bd0adb)
-
-### Dist plot
-![DS22](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/a8b71f2b-e474-4f80-a354-8e6e1aa15062)
-
-### correlation coefficient interpretation
+![WhatsApp Image 2023-10-12 at 13 07 46_c883b747](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/439b8d3f-6796-4f2c-9a80-0d28151e1120)
 
 
-![DS23](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/5b89025c-0179-4741-934c-6ef20fe8e3df)
-
-### Heat map
-![DS24](https://github.com/abinayasangeetha/ODD2023-Datascience-Ex-04/assets/119393675/71fa8088-79a1-4896-853b-cccb9a47d230)
-
-## RESULT:
-Thus we have read the given data and performed the multivariate analysis with different types of plots.
+![WhatsApp Image 2023-10-12 at 13 07 59_d14ba51f](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/c5a274b1-049d-41da-9b76-04fbff9f52ed)
 
 
+![WhatsApp Image 2023-10-12 at 13 08 16_bda86dfa](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/0816cbc8-71c6-4976-8341-fc1c064fbcab)
+
+
+![WhatsApp Image 2023-10-12 at 13 08 31_1f3d3c37](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/f0debc93-6fc4-4b98-84b1-af2373df2cd0)
+
+
+![WhatsApp Image 2023-10-12 at 13 09 08_23f5171b](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/5aadfaab-59a8-4742-bd1a-0bf8c4fb914d)
+
+
+![WhatsApp Image 2023-10-12 at 13 09 25_0f615952](https://github.com/22002102/ODD2023-Datascience-Ex-04/assets/119091638/4e4a0bec-3eb6-4210-a7b6-ed86e590344f)
+
+### RESULT:
+Thus we have read the given data and performed the multivariate analysis with different types of plots.
